@@ -1,0 +1,49 @@
+//mixin
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $size $color;
+    -moz-box-shadow:inset $top $left $blur $size $color;
+    box-shadow:inset $top $left $blur $size $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $size $color;
+    -moz-box-shadow: $top $left $blur $size $color;
+    box-shadow: $top $left $blur $size $color;
+  }
+}
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+// Variables
+// --------------------------------------------------
+$main-bg: #edf0f5;
+$white: #fff;
+$default-color: #3a3a3a;
+$default-h-color: #333;
+$blue: #55b1db;
+$grey: #696666;
+$red: #ff8663;
+$grey-bg: #e7e7e7;
+
+
+/*btn*/
+
+$btn-handsoff: #f5f8fd;
+$btn-disabled: #d8dfea;
+
+/* forms */
+$placeholder-txt: #878d90;
+$defaul-txt-form:  #5d5d5d;
+$bg-inputs-form: #fff;
+
+//trasition
+$gTransition: all .3s ease;
+$gTransitionLinear: all .2s linear;
+
+//fonts
+$fontDefault: Arial, sans-serif;
+
+
+
+

@@ -1,0 +1,137 @@
+
+/* Layout blocks
+------------------------------------------------------------------------------- */
+body {
+  position: relative;
+  width: 100%;
+  background: $white;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.container {
+  position: relative;
+  max-width: 440px;
+  margin: 0 auto;
+
+}
+
+a,button{
+  @include transition($gTransition);
+}
+/* Main content
+------------------------------------------------------------------------------- */
+.accordion__logo {
+  text-align: center;
+  padding:  0 0 24px 0;
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+}
+.accordion__panel {
+  padding: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
+  opacity: 0;
+  transition: max-height 1s,
+  visibility 1s,
+  margin 1s,
+  opacity 1s;
+  display: none;
+}
+.accordion__item {
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 10px;
+}
+.accordion__row {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 6px;
+  transition: height 1s;
+  height: 40px;
+  background: $grey-bg;
+  border-radius: 20px;
+  padding: 0 0 20px 0;
+  &:nth-child(even) {
+    .accordion__title{
+      background: $grey-bg;
+      color: $default-color;
+    }
+  }
+
+  &.active {
+    height: auto;
+
+    .accordion__title{
+      background: $red;
+    }
+
+    .accordion__panel {
+      opacity: 1;
+      display: block;
+    }
+    .accordion__arrow {
+
+      &:before {
+        border-top-color: transparent;
+        border-bottom-color: $white;
+        transform: translateY(-110%);
+      }
+
+    }
+  }
+}
+.accordion__wrap {
+  margin-top: 100px;
+}
+.accordion__title {
+  width: 100%;
+  border-radius: 20px;
+  height: 40px;
+  padding: 9px 21px;
+  background: $grey;
+  color: $white;
+  cursor: pointer;
+  transition: background-color 0.6s;
+  position: relative;
+}
+.accordion__arrow {
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  &:before {
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(255, 134, 99, 0);
+    border-top-color: #ff8663;
+    border-width: 7px;
+    margin-left: -7px;
+  }
+
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn .5s ease-in 1 forwards;
+}
+
+.is-paused {
+  animation-play-state: paused;
+}
